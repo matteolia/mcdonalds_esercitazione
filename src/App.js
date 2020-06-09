@@ -4,7 +4,7 @@ import Cart from './containers/Cart';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex w-screen">
       <Discovery />
       <Cart />
     </div>
