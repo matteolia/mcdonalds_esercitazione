@@ -1,13 +1,12 @@
 import React from 'react'; 
 import Welcome from '../components/Welcome';
-import Catalog from '../containers/Catalogue';
 import Catalogue from '../containers/Catalogue';
 
-export default () => {
+export default ({products}) => {
   return (
     <div className="w-3/4">
       <Welcome />
-      <Catalogue />
+      <Catalogue products={products} />
     </div>
   );
 };

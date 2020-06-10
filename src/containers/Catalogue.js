@@ -1,13 +1,19 @@
 import React from 'react'; 
 import Product from '../components/Product';
+import PropTypes from 'prop-types';
 
-export default () => {
+const Catalogue = ({products}) => {
   return (
-    <ul>
-      <Product
-        name="Big Mac"
-        image="https://www.mcdonalds.fr/image/layout_icon?img_id=319258"
-      ></Product>
+    <ul className="flex flex-wrap">
+      {products.map(({ name, image, id }) => (
+        <Product name={name} image={image} key={id}></Product>
+      ))}
     </ul>
   );
 };
+
+Catalogue.propTypes = {
+  products: PropTypes.array
+}
+
+export default Catalogue;
