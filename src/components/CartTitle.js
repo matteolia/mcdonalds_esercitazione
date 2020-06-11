@@ -5,7 +5,7 @@ class CartTitle extends Component {
   render() {
     return (
       <div className="flex flex-col">
-        <img src={Flag} className="w-12 mb-24 self-end" />
+        <img src={Flag} alt="flag" className="w-12 mb-24 self-end" />
         <h3 className="mb-6 text-3xl text-gray-900 leading-none font-bold">
           <span className="block">My</span> Order
         </h3>

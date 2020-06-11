@@ -6,7 +6,12 @@ const Catalogue = ({products}) => {
   return (
     <ul className="flex flex-wrap">
       {products.map(({ name, image, id }) => (
-        <Product name={name} image={image} key={id}></Product>
+        <Product
+          name={name}
+          image={image}
+          key={id}
+          onClick={(product) => console.log(product)}
+        ></Product>
       ))}
     </ul>
   );

@@ -5,7 +5,7 @@ class CartProducts extends Component {
     render () {
         return (
           <ul>
-            {this.props.products.map((product) => <CartProduct {...product} />)}
+            {this.props.products.map((product) => <CartProduct {...product} key={product.id} />)}
           </ul>
         );
     }
