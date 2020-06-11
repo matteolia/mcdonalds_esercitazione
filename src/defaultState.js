@@ -20,18 +20,4 @@ export const products = [
 ];
 
 export const cartProducts = [
-  {
-    id: 1,
-    name: "big mac",
-    image: "https://www.mcdonalds.fr/image/layout_icon?img_id=319258",
-    price: 10.5,
-    quantity: 2,
-  },
-  {
-    id: 2,
-    name: "coke",
-    image: "https://www.mcdonalds.fr/image/layout_icon?img_id=572391",
-    price: 4,
-    quantity: 1,
-  },
 ];

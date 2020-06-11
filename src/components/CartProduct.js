@@ -5,21 +5,8 @@ class CartProduct extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { quantity: this.props.quantity };
-
-    this.sub = this.sub.bind(this);
-    this.add = this.add.bind(this);
   }
 
-  sub() {
-    if (this.state.quantity > 0) {
-      this.setState({quantity: this.state.quantity - 1 });
-    }
-  }
-
-  add() {
-    this.setState({quantity: this.state.quantity + 1 });
-  }
 
   render() {
     return (
@@ -28,9 +15,9 @@ class CartProduct extends Component {
         <h4 className="text-lg font-bold">{this.props.name}</h4>
         <div className="text-gray-600 font-bold">{this.props.price}</div>
         <Stepper
-          value={this.state.quantity}
-          subClick={this.sub}
-          addClick={this.add}
+          value={this.props.quantity}
+          subClick={() => this.props.decrementCartProductQuantity(this.props.id)}
+          addClick={() => this.props.incrementCartProductQuantity(this.props.id)}
         />
       </li>
     );

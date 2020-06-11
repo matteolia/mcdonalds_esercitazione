@@ -2,15 +2,14 @@ import React from 'react';
 import Product from '../components/Product';
 import PropTypes from 'prop-types';
 
-const Catalogue = ({products}) => {
+const Catalogue = ({ products, productClick }) => {
   return (
     <ul className="flex flex-wrap">
-      {products.map(({ name, image, id }) => (
+      {products.map((product) => (
         <Product
-          name={name}
-          image={image}
-          key={id}
-          onClick={(product) => console.log(product)}
+          product={product}
+          key={product.id}
+          productClick={productClick}
         ></Product>
       ))}
     </ul>
