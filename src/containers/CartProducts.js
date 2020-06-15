@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import CartProduct from '../components/CartProduct'
 
+import {connect} from 'react-redux';
+import {incrementAmount, decrementAmount} from '../redux/actions/cartActions';
+
 class CartProducts extends Component {
     
   constructor(props) {
@@ -10,7 +13,7 @@ class CartProducts extends Component {
   render () {
       return (
         <ul>
-          {this.props.products.map((product) => (
+          {this.props.cartProducts.map((product) => (
             <CartProduct
               {...product}
               key={product.id}
@@ -27,4 +30,17 @@ class CartProducts extends Component {
   }
 }
 
-export default CartProducts;
+let mapStateToProps = (state) => {
+  return {
+    cartProducts: state.cart
+  }
+}
+
+let mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    incrementCartProductQuantity: (product) => dispatch(incrementAmount(product)),
+    decrementCartProductQuantity: (product) => dispatch(decrementAmount(product))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartProducts);

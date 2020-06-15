@@ -2,14 +2,17 @@ import React from 'react';
 import Product from '../components/Product';
 import PropTypes from 'prop-types';
 
-const Catalogue = ({ products, productClick }) => {
+import { connect } from "react-redux";
+import {addProduct} from "../redux/actions/cartActions"
+
+const Catalogue = (props) => {
   return (
     <ul className="flex flex-wrap">
-      {products.map((product) => (
+      {props.products.map((product) => (
         <Product
           product={product}
           key={product.id}
-          productClick={productClick}
+          productClick={props.addProduct}
         ></Product>
       ))}
     </ul>
@@ -20,4 +23,17 @@ Catalogue.propTypes = {
   products: PropTypes.array
 }
 
-export default Catalogue;
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.catalogue
+  }
+};
+
+let mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addProduct: (currentProduct) => dispatch(addProduct(currentProduct)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Catalogue);

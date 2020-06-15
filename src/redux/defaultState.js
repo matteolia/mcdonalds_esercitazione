@@ -1,4 +1,5 @@
-export const products = [
+export default {
+    catalogue: [
   {
     id: 1,
     name: "280™ Original",
@@ -16,7 +17,6 @@ export const products = [
     name: "LE McWRAP™ NEW YORK & POULET BACON",
     image: "https://www.mcdonalds.fr/image/layout_icon?img_id=305553",
     price: 4.33,
-  },
-];
-
-export const cartProducts = [];
+  }],
+  cart: []
+}
